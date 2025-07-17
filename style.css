@@ -1,0 +1,256 @@
+/* Pastikan CSS ini DIGABUNGKAN dengan CSS yang sudah ada di style.css Anda. */
+/* Jika ada konflik, pastikan yang ini menimpa yang lama. */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #e0f2fe; /* Tailwind blue-50 */
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Hero Section */
+.hero-bg {
+  background-color: #0d1117; /* Warna dasar gelap untuk kontras */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem;
+  min-height: 70vh; /* Agar lebih luas */
+}
+
+/* Efek Latar Belakang Gradient Dinamis */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.4), transparent 60%), /* Biru terang */
+              radial-gradient(circle at bottom right, rgba(234, 179, 8, 0.4), transparent 60%); /* Kuning terang */
+  animation: pulse-gradient 15s infinite alternate ease-in-out;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+@keyframes pulse-gradient {
+  0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 0.9; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.hero-text {
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Animasi untuk kata "Landing Page Profesional" */
+.animated-text {
+  display: inline-block;
+  color: #38bdf8; /* Warna biru langit yang menarik */
+  animation: scaleAndFadeIn 1.5s ease-out forwards;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+@keyframes scaleAndFadeIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Penekanan Harga Rp50.000 */
+.price-highlight {
+  display: inline-block;
+  font-size: 1.2em; /* Membuat ukuran sedikit lebih besar dari teks sekitarnya */
+  font-weight: 900; /* Lebih tebal */
+  color: #a78bfa; /* Warna ungu yang menonjol (purple-400) */
+  text-shadow: 0 0 15px rgba(167, 139, 250, 0.7), 0 0 30px rgba(167, 139, 250, 0.5); /* Efek glow yang kuat */
+  animation: pulseGlow 1.5s infinite alternate ease-in-out; /* Animasi kedipan/pulse */
+  padding: 0.1em 0.3em; /* Sedikit padding untuk efek menonjol */
+  border-radius: 0.2em; /* Sedikit lengkungan */
+  background: rgba(255, 255, 255, 0.1); /* Background transparan agar lebih menonjol */
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); text-shadow: 0 0 10px rgba(167, 139, 250, 0.7); }
+  50% { transform: scale(1.05); text-shadow: 0 0 20px rgba(167, 139, 250, 0.9), 0 0 40px rgba(167, 139, 250, 0.7); }
+  100% { transform: scale(1); text-shadow: 0 0 10px rgba(167, 139, 250, 0.7); }
+}
+
+/* Hapus animasi untuk "24/7" jika tidak lagi digunakan secara terpisah di headline */
+/* .animated-text-247 { ... } */
+
+
+.hero-image {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transform: rotateY(10deg) rotateX(10deg);
+  transform-origin: 50% 50%;
+  transition: transform 0.4s ease;
+  animation: float-image 4s infinite ease-in-out;
+}
+.hero-image img:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+@keyframes float-image {
+  0%, 100% { transform: translateY(0) rotateY(10deg) rotateX(10deg); }
+  50% { transform: translateY(-10px) rotateY(10deg) rotateX(10deg); }
+}
+
+/* CTA Button */
+.cta-button {
+  background-color: #3B82F6; /* Biru utama */
+  color: white;
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4); /* Shadow biru */
+}
+.cta-button:hover {
+  background-color: #2563EB;
+  transform: scale(1.05);
+  animation: none;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6); /* Shadow lebih kuat saat hover */
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Floating WA Button */
+.floating-wa {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: bounce-wa 3s infinite ease-in-out;
+  z-index: 1000;
+  transition: transform 0.3s;
+}
+.floating-wa:hover {
+  transform: scale(1.1);
+  animation: none;
+}
+@keyframes bounce-wa {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Price Card */
+.price-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.price-card ul {
+    flex-grow: 1;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.portfolio-item {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.portfolio-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.portfolio-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.portfolio-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Animasi Fade-in saat Scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsivitas Tambahan */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image {
+    margin: 2rem auto 0 auto;
+  }
+  .hero-image img {
+    transform: rotateY(0deg) rotateX(0deg);
+    animation: none;
+  }
+  .hero-bg::before {
+    animation: none;
+  }
+  .cta-button {
+    width: 100%;
+  }
+  .price-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Efek Partikel Sederhana (opsional, jika Anda ingin menggunakan ini) */
+#particle-canvas {
+  pointer-events: none;
+}
+
